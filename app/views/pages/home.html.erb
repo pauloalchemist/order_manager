@@ -1,0 +1,10 @@
+<h1>Página Principal</h1>
+<p>Tá funcionando</p>
+
+<% if current_user %>
+  <p>
+    Olá <%= current_user.first_name %>, você está no super aplicativo!
+  </p>
+<% end %>
+
+<%= button_to "Sair", destroy_user_session_path, method: :delete %>
