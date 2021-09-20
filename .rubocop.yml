@@ -2,7 +2,7 @@ Metrics/BlockLength:
   Enabled: false
 
 Metrics/MethodLength:
-  Enable: false
+  Enabled: false
 
 Style/FrozenStringLiteralComment:
   Enabled: false
