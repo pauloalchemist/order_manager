@@ -15,9 +15,17 @@ gem 'webpacker', '~> 5.0'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'debase', '~> 0.2.4.1'
   gem 'factory_bot_rails', '~> 6.2'
   gem 'faker', '~> 2.19'
   gem 'rspec-rails', '~> 5.0', '>= 5.0.2'
+  gem 'ruby-debug-ide', '~> 0.7.3'
+end
+
+group :test do
+  gem 'capybara', '~> 3.35', '>= 3.35.3'
+  gem 'selenium-webdriver', '~> 3.142', '>= 3.142.7'
+  gem 'webdrivers', '~> 4.6', '>= 4.6.1'
 end
 
 group :development do
