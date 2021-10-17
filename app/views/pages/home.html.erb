@@ -1,10 +1,12 @@
-<h1>Página Principal</h1>
-<p>Tá funcionando</p>
+<%= render "shared/navbar" %>
+<main>
+  <h1>Página Principal</h1>
 
-<% if current_user %>
-  <p>
-    Olá <%= current_user.first_name %>, você está no super aplicativo!
-  </p>
-<% end %>
+  <% if current_user %>
+    <p>
+      Olá <%= current_user.first_name %>, você está no super aplicativo!
+    </p>
 
-<%= button_to "Sair", destroy_user_session_path, method: :delete %>
+    <p>Tá funcionando</p>
+  <% end %>
+</main>
