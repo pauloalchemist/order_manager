@@ -21,3 +21,4 @@ yarn-debug.log*
 /test
 /app/helpers
 /.dados
+.vimspector.json
