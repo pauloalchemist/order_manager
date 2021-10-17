@@ -11,6 +11,10 @@
   width: 280px;
 }
 
+.logon-box #logo {
+  text-align: center;
+}
+
 .logon-box h2 {
   text-align: center;
   font-size: 40px;
