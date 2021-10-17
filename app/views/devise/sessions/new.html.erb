@@ -1,0 +1,31 @@
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <main class='logon-main'>
+    <div class="logon-box">
+      <%= render "shared/logo" %>
+      <h2>Fazer login</h2>
+      <div class="textbox">
+        <i class="fas fa-envelope" aria-hidden="true"></i>
+        <%= f.label :email %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+
+      <div class="textbox">
+        <i class="fas fa-lock" aria-hidden="true"></i>
+        <%= f.label :senha %>
+        <%= f.password_field :password, autocomplete: "current-password" %>
+      </div>
+
+      <% if devise_mapping.rememberable? %>
+        <div class="field">
+          <%= f.check_box :remember_me %>
+          <%= f.label :lembrar_me %>
+        </div>
+      <% end %>
+
+      <div class="btn-logon">
+        <%= f.submit "Entrar" %>
+      </div>
+      <%= render "devise/shared/links" %>
+    </div>
+  </main>
+<% end %>
