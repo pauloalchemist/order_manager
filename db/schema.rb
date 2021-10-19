@@ -23,14 +23,6 @@ ActiveRecord::Schema.define(version: 2021_10_16_165755) do
     t.index ["states_id"], name: "index_cities_on_states_id"
   end
 
-  create_table "providers", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "fantasy_name", default: "", null: false
-    t.string "cnpj", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "states", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
