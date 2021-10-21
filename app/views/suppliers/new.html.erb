@@ -1,0 +1,29 @@
+<%= form_with scope: :supplier, url: suppliers_url do |f| %>
+  <main class="logon-main">
+    <div class="logon-box">
+      <%= render "shared/logo" %>
+      <h2>Cadastrar fornecedor</h2>
+      <div class="textbox">
+        <i class="far fa-user" aria-hidden="true"></i>
+        <%= f.label :razão_social %><br>
+        <%= f.text_field :corporate_name, autofocus: true %>
+      </div>
+
+      <div class="textbox">
+        <i class="far fa-user" aria-hidden="true"></i>
+        <%= f.label :nome_fantasia %><br>
+        <%= f.text_field :fantasy_name %>
+      </div>
+
+      <div class="textbox">
+        <i class="fas fa-envelope" aria-hidden="true"></i>
+        <%= f.label :cnpj %><br>
+        <%= f.text_field :cnpj %>
+      </div>
+
+      <button class="btn-logon">
+        <%= f.submit "Cadastrar" %>
+      </button>
+    </div>
+  </main>
+<% end %>
