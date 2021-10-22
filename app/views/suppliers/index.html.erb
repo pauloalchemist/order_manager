@@ -1,0 +1,22 @@
+<h1>Fornecedores</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Razão Social</th>
+      <th>Nome Fantasia</th>
+      <th>CNPJ</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @suppliers.each do |s| %>
+      <tr>
+        <td><%= s.corporate_name %></td>
+        <td><%= s.fantasy_name %></td>
+        <td><%= s.cnpj %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
