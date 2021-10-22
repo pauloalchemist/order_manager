@@ -1,0 +1,31 @@
+<nav class="navbar">
+  <%= render "shared/logo" %>
+  <ul class="nav-links">
+    <li><a href="#">Serviços</a></li>
+    <li><a href="#">Blog</a></li>
+    <li><a href="#">Contatos</a></li>
+    <li><a href="#">Sobre</a></li>
+    <% if current_user %>
+      <li>
+        <%= link_to "Alterar dados", edit_user_registration_path %>
+      </li>
+      <li>
+        <%= link_to "Sair", destroy_user_session_path, method: :delete %>
+      </li>
+
+    <% else %>
+      <li>
+        <%= link_to "Criar conta", new_user_registration_path %>
+      </li>
+      <li>
+        <%= link_to "Login", new_user_session_path %>
+      </li>
+    <% end %>
+  </ul>
+
+  <div class="hamburger">
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+  </div>
+</nav>
