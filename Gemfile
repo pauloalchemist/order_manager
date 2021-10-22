@@ -20,6 +20,7 @@ group :development, :test do
   gem 'debase', '~> 0.2.4.1'
   gem 'factory_bot_rails', '~> 6.2'
   gem 'faker', '~> 2.19'
+  gem 'rspec-collection_matchers', '~> 1.2'
   gem 'rspec-rails', '~> 5.0', '>= 5.0.2'
   gem 'ruby-debug-ide', '~> 0.7.3'
 end
