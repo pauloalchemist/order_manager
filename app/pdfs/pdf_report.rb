@@ -1,8 +1,4 @@
 class PdfReport < Prawn::Document
-  # Often-Used Constants
-  TABLE_FONT_SIZE = 9
-  TABLE_BORDER_STYLE = :grid
-
   def initialize(default_prawn_options = {})
     super(default_prawn_options)
     font_size 10
