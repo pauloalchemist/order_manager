@@ -6,16 +6,8 @@ class SuppliersController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        pdf = Prawn::Document.new
-        @suppliers.each do |supplier|
-          pdf.text "Forncedor #{supplier.corporate_name}"
-          pdf.text "Nome fantasia: #{supplier.fantasy_name}"
-          pdf.text "CNPJ: #{supplier.cnpj}"
-        end
-        send_data pdf.render,
-                  filename: "Lista de Fornecedores_#{Time.now}.pdf",
-                  type: 'application/pdf',
-                  disposition: 'inline'
+        pdf = SuppliersReportPdf.new(@suppliers)
+        send_data pdf.render, filename: "fornecedores_#{Time.now}.pdf", type: 'application/pdf', disposition: 'inline'
       end
     end
   end
