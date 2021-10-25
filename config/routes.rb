@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  resources :suppliers
-  resources :printpdf
-  root to: 'pages#home'
   devise_for :users
+  authenticate :user do 
+    resources :suppliers
+  end
+
+  root to: 'pages#home'
 end
