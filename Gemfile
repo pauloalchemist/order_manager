@@ -14,6 +14,7 @@ gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
 gem 'ransack', '~> 2.4', '>= 2.4.2'
 gem 'sass-rails', '>= 6'
 gem 'sidekiq', '~> 6.2', '>= 6.2.2'
+gem 'simple_form', '~> 5.1'
 gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 5.0'
 

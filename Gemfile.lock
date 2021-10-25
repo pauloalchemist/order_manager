@@ -247,6 +247,9 @@ GEM
       connection_pool (>= 2.2.2)
       rack (~> 2.0)
       redis (>= 4.2.0)
+    simple_form (5.1.0)
+      actionpack (>= 5.2)
+      activemodel (>= 5.2)
     spring (3.0.0)
     sprockets (4.0.2)
       concurrent-ruby (~> 1.0)
@@ -315,6 +318,7 @@ DEPENDENCIES
   sass-rails (>= 6)
   selenium-webdriver (~> 3.142, >= 3.142.7)
   sidekiq (~> 6.2, >= 6.2.2)
+  simple_form (~> 5.1)
   spring
   turbolinks (~> 5)
   tzinfo-data
