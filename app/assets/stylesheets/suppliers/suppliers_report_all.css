@@ -1,6 +1,6 @@
 .suppliers-report-all {
   width: 100%;
-  display: flex;
+  display: grid;
   justify-content: center;
   align-items: center;
   color: #fff;
@@ -28,9 +28,17 @@ td {
   padding: 12px 15px;
 }
 
-.suppliers-report-all a {
+.suppliers-report-all .download-pdf {
   color: white;
-  text-align: center;
+  margin: auto;
+  padding-bottom: 0.5em;
+}
+
+.suppliers-report-all nav {
+  margin: auto;
+  height: auto;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3em;
 }
 
 .suppliers-report-all a:hover {
