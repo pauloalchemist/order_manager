@@ -1,3 +1,5 @@
+<%= render 'shared/sidenav_user' %>
+
 <div class="suppliers-report-all">
   <table>
     <caption>Fornecedores</caption>
@@ -19,9 +21,9 @@
       <% end %>
     </tbody>
   </table>
+  <%= paginate @suppliers %>
   <div class="download-pdf">
     <%= link_to 'Download', '/suppliers.pdf', target: :blank %>
     <i class="fa fa-file-pdf"></i>
   </div>
-  <%= paginate @suppliers, remote: true %>
 </div>
