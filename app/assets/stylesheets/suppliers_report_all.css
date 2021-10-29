@@ -1,0 +1,43 @@
+.suppliers-report-all {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  overflow-x: auto;
+}
+
+.suppliers-report-all table {
+  border-collapse: collapse;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.suppliers-report-all table caption {
+  text-align: center;
+  font-size: 40px;
+  border-bottom: 2px solid #4caf50;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding: 10px 0;
+}
+
+.suppliers-report-all th,
+td {
+  border: 1px solid white;
+  padding: 12px 15px;
+}
+
+.suppliers-report-all a {
+  color: white;
+  text-align: center;
+}
+
+.suppliers-report-all a:hover {
+  color: #4caf50;
+  border-bottom: 0.75px solid white;
+}
+
+.suppliers-report-all tbody tr:nth-of-type(even) {
+  background-color: #336e7b;
+}
