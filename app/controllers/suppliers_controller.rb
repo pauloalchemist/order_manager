@@ -2,10 +2,11 @@ class SuppliersController < ApplicationController
   before_action :set_supplier, only: %i[show edit update destroy]
 
   def index
-    @suppliers = Supplier.all
+    @suppliers = Supplier.order(:suppliers).page params[:page]
     respond_to do |format|
       format.html
       format.pdf do
+        @suppliers = Supplier.all
         pdf = SuppliersReportPdf.new(@suppliers)
         send_data pdf.render, filename: "fornecedores_#{Time.now}.pdf", type: 'application/pdf', disposition: 'inline'
       end
@@ -39,7 +40,7 @@ class SuppliersController < ApplicationController
 
     respond_to do |format|
       if @supplier.save
-        format.html { redirect_to suppliers_url, notice: 'Fornecedor criado com sucesso.' }
+        format.html { redirect_to @supplier, notice: 'Fornecedor criado com sucesso.' }
         format.json { render :show, status: :created, location: @supplier }
       else
         format.html { render :new, status: :unprocessable_entity }

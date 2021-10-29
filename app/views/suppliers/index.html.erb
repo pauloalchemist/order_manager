@@ -19,5 +19,9 @@
       <% end %>
     </tbody>
   </table>
-  <%= link_to 'Download Pdf', '/suppliers.pdf', target: :blank %>
+  <div class="download-pdf">
+    <%= link_to 'Download', '/suppliers.pdf', target: :blank %>
+    <i class="fa fa-file-pdf"></i>
+  </div>
+  <%= paginate @suppliers, remote: true %>
 </div>
