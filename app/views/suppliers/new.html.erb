@@ -1,4 +1,5 @@
-<%= form_with scope: :supplier, url: suppliers_url do |f| %>
+<%= render 'shared/sidenav_user' %>
+<%= form_with model: @supplier, url: suppliers_url do |f| %>
   <main class="logon-main">
     <div class="logon-box">
       <%= render "shared/logo" %>
@@ -20,6 +21,33 @@
         <%= f.label :cnpj %><br>
         <%= f.text_field :cnpj %>
       </div>
+
+      <%= f.fields_for :supplier_addresses do |sa_f| %>
+        <div class="textbox">
+          <%= sa_f.label :endereço %><br>
+          <%= sa_f.text_field :address %>
+        </div>
+        <div class="textbox">
+          <%= sa_f.label :número %><br>
+          <%= sa_f.text_field :number %>
+        </div>
+        <div class="textbox">
+          <%= sa_f.label :bairro %><br>
+          <%= sa_f.text_field :district %>
+        </div>
+        <div class="textbox">
+          <%= sa_f.label :cidade %><br>
+          <%= sa_f.text_field :cities_id %>
+        </div>
+        <div class="textbox">
+          <%= sa_f.label :estado %><br>
+          <%= sa_f.text_field :states_id %>
+        </div>
+        <div class="textbox">
+          <%= sa_f.label :Cep %><br>
+          <%= sa_f.text_field :zipcode %>
+        </div>
+      <% end %>
 
       <button class="btn-logon">
         <%= f.submit "Cadastrar" %>

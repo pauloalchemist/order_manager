@@ -31,6 +31,7 @@ class SuppliersController < ApplicationController
 
   def new
     @supplier = Supplier.new
+    @supplier.supplier_addresses.build
   end
 
   def edit; end
@@ -56,6 +57,9 @@ class SuppliersController < ApplicationController
   end
 
   def supplier_params
-    params.require(:supplier).permit(:corporate_name, :fantasy_name, :cnpj)
+    params.require(:supplier).permit(
+      :corporate_name, :fantasy_name, :cnpj,
+      supplier_addresses_attributes: %i[id address number district cities_id states_id zipcode]
+    )
   end
 end
