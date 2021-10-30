@@ -1,8 +1,8 @@
-class SupplierAddress < ActiveRecord::Migration[6.1]
+class SupplierAddresses < ActiveRecord::Migration[6.1]
   def change
-    create_table :supplier_address do |t|
+    create_table :supplier_addresses do |t|
       t.string :address, null: false, limit: 255
-      t.references :suppliers, foreign_key: true, null: false
+      t.references :supplier, foreign_key: true, null: false
       t.integer :number, null: false
       t.string :district, null: false, limit: 255
       t.references :cities, foreign_key: true, null: false
