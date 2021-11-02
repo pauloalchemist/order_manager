@@ -1,0 +1,5 @@
+<%= render 'shared/sidenav_user' %>
+<main class="container-chart">
+  <%= line_chart Supplier.group_by_day(:created_at).count, label: 'Fornecedores', title: 'Fornecedores' %>
+  <%= column_chart User.group_by_day_of_week(:created_at, format: "%a").count , label: 'Usuários', title: 'Usuários' %>
+</main>
