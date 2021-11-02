@@ -1,0 +1,12 @@
+.title-index {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.title-index h2 {
+  margin-left: 1em;
+  color: white;
+}

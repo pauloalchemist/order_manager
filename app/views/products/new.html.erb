@@ -1,0 +1,36 @@
+<%= render 'shared/sidenav_user' %>
+<%= form_with model: @product do |f| %>
+  <main class="logon-main">
+    <div class="logon-box">
+      <%= render "shared/logo" %>
+      <h2>Cadastrar novo produto</h2>
+      <div class="textbox">
+        <i class="far fa-user" aria-hidden="true"></i>
+        <%= f.label :Forncedor %>
+        <%= f.collection_select :supplier_id, Supplier.all, :id, :corporate_name, autofocus: true %>
+      </div>
+
+      <div class="textbox">
+        <i class="far fa-user" aria-hidden="true"></i>
+        <%= f.label :nome_do_produto %>
+        <%= f.text_field :name %>
+      </div>
+
+      <div class="textbox">
+        <i class="fas fa-envelope" aria-hidden="true"></i>
+        <%= f.label :descrição %>
+        <%= f.text_field :description %>
+      </div>
+      
+      <div class="textbox">
+        <i class="fas fa-envelope" aria-hidden="true"></i>
+        <%= f.label :sku %>
+        <%= f.text_field :sku %>
+      </div>
+
+      <button class="btn-logon">
+        <%= f.submit "Cadastrar" %>
+      </button>
+    </div>
+  </main>
+<% end %>

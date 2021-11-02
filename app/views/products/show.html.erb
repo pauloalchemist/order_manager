@@ -1,0 +1,20 @@
+<%= render 'shared/sidenav_user' %>
+
+<div class="show-product">
+  <%= render 'shared/notice' %>
+  <p>
+    <strong>Nome:</strong>
+    <%= @product.name %>
+  </p>
+
+  <p>
+    <strong>Descrição:</strong>
+    <%= @product.description %>
+  </p>
+
+  <p>
+    <strong>Sku:</strong>
+    <%= @product.sku %>
+  </p>
+  <%= link_to "Ver todos os produtos", products_url %>
+</div>
