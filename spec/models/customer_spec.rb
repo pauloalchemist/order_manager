@@ -1,5 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Customer, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let(:customer) { build(:customer) }
+
+  context 'test customer creation' do
+    it { expect(customer).to be_valid }
+    it { expect(customer.active?).to be true }
+  end
 end
