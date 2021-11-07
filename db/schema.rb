@@ -27,8 +27,10 @@ ActiveRecord::Schema.define(version: 2021_11_07_160150) do
     t.string "name", limit: 255, null: false
     t.string "cnpj", limit: 255, null: false
     t.string "email", limit: 255, null: false
+    t.integer "status", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["cnpj"], name: "index_customers_on_cnpj", unique: true
   end
 
   create_table "products", force: :cascade do |t|
