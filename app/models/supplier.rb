@@ -1,5 +1,5 @@
 class Supplier < ApplicationRecord
-  enum status: %i[active inactive]
+  enum status: %i[active inactive], _default: :active
 
   validates :corporate_name, :cnpj, presence: true
 
