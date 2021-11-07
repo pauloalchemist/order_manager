@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_21_195638) do
+ActiveRecord::Schema.define(version: 2021_11_07_134440) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,12 +23,15 @@ ActiveRecord::Schema.define(version: 2021_10_21_195638) do
     t.index ["states_id"], name: "index_cities_on_states_id"
   end
 
-  create_table "providers", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "fantasy_name", default: "", null: false
-    t.string "cnpj", null: false
+  create_table "products", force: :cascade do |t|
+    t.string "name", limit: 255, null: false
+    t.text "description", null: false
+    t.string "sku", limit: 50, null: false
+    t.bigint "supplier_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "status", default: 0, null: false
+    t.index ["supplier_id"], name: "index_products_on_supplier_id"
   end
 
   create_table "states", force: :cascade do |t|
@@ -37,9 +40,9 @@ ActiveRecord::Schema.define(version: 2021_10_21_195638) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "supplier_address", force: :cascade do |t|
+  create_table "supplier_addresses", force: :cascade do |t|
     t.string "address", limit: 255, null: false
-    t.bigint "suppliers_id", null: false
+    t.bigint "supplier_id", null: false
     t.integer "number", null: false
     t.string "district", limit: 255, null: false
     t.bigint "cities_id", null: false
@@ -47,9 +50,9 @@ ActiveRecord::Schema.define(version: 2021_10_21_195638) do
     t.string "zipcode", limit: 255, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["cities_id"], name: "index_supplier_address_on_cities_id"
-    t.index ["states_id"], name: "index_supplier_address_on_states_id"
-    t.index ["suppliers_id"], name: "index_supplier_address_on_suppliers_id"
+    t.index ["cities_id"], name: "index_supplier_addresses_on_cities_id"
+    t.index ["states_id"], name: "index_supplier_addresses_on_states_id"
+    t.index ["supplier_id"], name: "index_supplier_addresses_on_supplier_id"
   end
 
   create_table "suppliers", force: :cascade do |t|
@@ -58,15 +61,7 @@ ActiveRecord::Schema.define(version: 2021_10_21_195638) do
     t.string "cnpj", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "teste_address", force: :cascade do |t|
-    t.string "address", limit: 255, null: false
-    t.integer "number", null: false
-    t.string "district", limit: 255, null: false
-    t.string "zipcode", limit: 255, null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.integer "status", default: 0, null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -84,7 +79,8 @@ ActiveRecord::Schema.define(version: 2021_10_21_195638) do
   end
 
   add_foreign_key "cities", "states", column: "states_id"
-  add_foreign_key "supplier_address", "cities", column: "cities_id"
-  add_foreign_key "supplier_address", "states", column: "states_id"
-  add_foreign_key "supplier_address", "suppliers", column: "suppliers_id"
+  add_foreign_key "products", "suppliers"
+  add_foreign_key "supplier_addresses", "cities", column: "cities_id"
+  add_foreign_key "supplier_addresses", "states", column: "states_id"
+  add_foreign_key "supplier_addresses", "suppliers"
 end
