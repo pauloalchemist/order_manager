@@ -1,4 +1,6 @@
 class Supplier < ApplicationRecord
+  enum status: %i[active inactive]
+
   validates :corporate_name, :cnpj, presence: true
 
   has_many :supplier_addresses, inverse_of: :supplier
