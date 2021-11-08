@@ -93,6 +93,10 @@ GEM
       responders
       warden (~> 1.2.3)
     diff-lcs (1.4.4)
+    dotenv (2.7.6)
+    dotenv-rails (2.7.6)
+      dotenv (= 2.7.6)
+      railties (>= 3.2)
     erubi (1.10.0)
     factory_bot (6.2.0)
       activesupport (>= 5.0.0)
@@ -302,6 +306,7 @@ DEPENDENCIES
   chartkick (~> 4.1)
   debase (~> 0.2.4.1)
   devise (~> 4.8)
+  dotenv-rails (~> 2.7, >= 2.7.6)
   factory_bot_rails (~> 6.2)
   faker (~> 2.19)
   groupdate (~> 5.2, >= 5.2.2)

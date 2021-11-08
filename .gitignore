@@ -23,3 +23,4 @@ yarn-debug.log*
 /.dados
 .vimspector.json
 /imgs
+/.env

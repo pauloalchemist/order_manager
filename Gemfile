@@ -24,6 +24,7 @@ gem 'webpacker', '~> 5.0'
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'debase', '~> 0.2.4.1'
+  gem 'dotenv-rails', '~> 2.7', '>= 2.7.6'
   gem 'factory_bot_rails', '~> 6.2'
   gem 'faker', '~> 2.19'
   gem 'pdf-reader', '~> 2.5'
