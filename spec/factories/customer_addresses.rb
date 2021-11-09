@@ -1,0 +1,11 @@
+FactoryBot.define do
+  factory :customer_address do
+    address { Faker::Address.street_name }
+    number { Faker::Address.building_number }
+    district { Faker::Books::Lovecraft.location }
+    zipcode { Faker::Address.zip_code }
+    customer_id { 1 }
+    cities_id { 100 }
+    states_id { 162 }
+  end
+end

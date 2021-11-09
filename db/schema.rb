@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_07_160150) do
+ActiveRecord::Schema.define(version: 2021_11_08_203948) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,21 @@ ActiveRecord::Schema.define(version: 2021_11_07_160150) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["states_id"], name: "index_cities_on_states_id"
+  end
+
+  create_table "customer_addresses", force: :cascade do |t|
+    t.string "address", limit: 255, null: false
+    t.integer "number", null: false
+    t.string "district", limit: 255, null: false
+    t.string "zipcode", limit: 255, null: false
+    t.bigint "customer_id", null: false
+    t.bigint "cities_id", null: false
+    t.bigint "states_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["cities_id"], name: "index_customer_addresses_on_cities_id"
+    t.index ["customer_id"], name: "index_customer_addresses_on_customer_id"
+    t.index ["states_id"], name: "index_customer_addresses_on_states_id"
   end
 
   create_table "customers", force: :cascade do |t|
@@ -89,6 +104,9 @@ ActiveRecord::Schema.define(version: 2021_11_07_160150) do
   end
 
   add_foreign_key "cities", "states", column: "states_id"
+  add_foreign_key "customer_addresses", "cities", column: "cities_id"
+  add_foreign_key "customer_addresses", "customers"
+  add_foreign_key "customer_addresses", "states", column: "states_id"
   add_foreign_key "products", "suppliers"
   add_foreign_key "supplier_addresses", "cities", column: "cities_id"
   add_foreign_key "supplier_addresses", "states", column: "states_id"
