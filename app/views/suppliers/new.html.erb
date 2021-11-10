@@ -37,11 +37,11 @@
         </div>
         <div class="textbox">
           <%= sa_f.label :cidade %><br>
-          <%= sa_f.text_field :cities_id %>
+          <%= sa_f.collection_select :cities_id, City.order(:name), :id, :name %>
         </div>
         <div class="textbox">
           <%= sa_f.label :estado %><br>
-          <%= sa_f.text_field :states_id %>
+          <%= sa_f.collection_select :states_id, State.order(:name), :id, :name %>
         </div>
         <div class="textbox">
           <%= sa_f.label :Cep %><br>
