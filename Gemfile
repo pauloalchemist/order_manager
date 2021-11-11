@@ -4,6 +4,7 @@ ruby '3.0.2'
 
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'chartkick', '~> 4.1'
+gem 'cpf_cnpj', '~> 0.5.0'
 gem 'devise', '~> 4.8'
 gem 'groupdate', '~> 5.2', '>= 5.2.2'
 gem 'jbuilder', '~> 2.7'
