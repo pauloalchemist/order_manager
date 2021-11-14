@@ -12,5 +12,9 @@ RSpec.describe Supplier, type: :model do
       it { should validate_presence_of(:corporate_name) }
       it { should validate_presence_of(:cnpj) }
     end
+
+    describe 'associations' do
+      it { should have_many(:supplier_addresses) }
+    end
   end
 end
