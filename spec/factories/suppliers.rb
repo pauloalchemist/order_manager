@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :supplier do
-    corporate_name { 'Tabajara Corp' }
-    fantasy_name { 'Corporção Tabajara' }
-    cnpj { '000.000.000-0000/00' }
+    corporate_name { Faker::Company.name }
+    fantasy_name { Faker::Fantasy::Tolkien.character }
+    cnpj { Faker::Company.brazilian_company_number(formatted: true) }
   end
 end
