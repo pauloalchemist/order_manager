@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.describe Supplier, type: :model do
   let(:supplier) { build(:supplier) }
-  subject { supplier }
 
   context 'test supplier' do
     it { expect(supplier).to be_valid }

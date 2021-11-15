@@ -1,7 +1,7 @@
 require 'cpf_cnpj'
 
 class Supplier < ApplicationRecord
-  before_create :valid_cnpj
+  before_validation :valid_cnpj
 
   enum status: %i[active inactive], _default: :active
 
@@ -12,9 +12,12 @@ class Supplier < ApplicationRecord
 
   private
 
+  def check_cnpj(cnpj)
+    number = CNPJ.new(cnpj)
+    number.formatted if number.valid?
+  end
+
   def valid_cnpj
-    cnpj_v = CNPJ.new(cnpj)
-    cnpj_v.formatted
-    raise 'CNPJ inválido. Tente novamente.' unless cnpj_v.valid?
+    self.cnpj = check_cnpj(cnpj)
   end
 end
