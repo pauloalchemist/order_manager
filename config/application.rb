@@ -30,7 +30,7 @@ module OrderManager
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
     #config.assets.initialize_on_precompile = false
-
+    config.autoload_paths += %W(#{config.root}/app/helpers)
     #config.time_zone = 'Brasilia'
     #translation for portuguese BR 
     #config.i18n.enforce_available_locales = false
