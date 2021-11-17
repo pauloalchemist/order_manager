@@ -1,24 +1,11 @@
-# README
+[![Ruby](https://github.com/pauloalchemist/order_manager/actions/workflows/ruby.yml/badge.svg)](https://github.com/pauloalchemist/order_manager/actions/workflows/ruby.yml)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+# Projeto Order Manager
 
-* Ruby version
+Projeto de gerenciador de pedidos com Ruby on Rails.
 
-* System dependencies
+### No projeto é utilizado:
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+ - GithubActions para Continuous Integration (CI)
+ 
