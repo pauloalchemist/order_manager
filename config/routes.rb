@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   authenticate :user do 
-    resources :suppliers
+    resources :suppliers, only: [:index, :show, :new, :create]
     get 'dashboard', to: 'dashboards#dash'
   end
 
