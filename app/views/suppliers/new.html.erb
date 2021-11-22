@@ -1,8 +1,10 @@
 <%= render 'shared/sidenav_user' %>
 <%= form_with model: @supplier, url: suppliers_url do |f| %>
   <main class="logon-main">
+    <%= render 'shared/suppliers_errors/error_cnpj' %>
     <div class="logon-box">
       <%= render "shared/logo" %>
+      <%= render "shared/alert" %>
       <h2>Cadastrar fornecedor</h2>
       <div class="textbox">
         <i class="far fa-user" aria-hidden="true"></i>
