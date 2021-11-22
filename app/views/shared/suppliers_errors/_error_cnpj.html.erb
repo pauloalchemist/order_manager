@@ -1,0 +1,8 @@
+<% if @supplier.errors.any? %>
+  <div class="errors">
+    <p><%= pluralize(@supplier.errors.count, "error") %> impossibilita(m) o fornecedor de ser salvo:</p>
+      <% @supplier.errors.each do |error| %>
+        <p>- <%= error.full_message %></p>
+      <% end %>
+  </div>
+<% end %>
