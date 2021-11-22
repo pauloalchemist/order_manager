@@ -1,5 +1,3 @@
-require 'cpf_cnpj'
-
 class Supplier < ApplicationRecord
   before_validation :valid_cnpj
 
@@ -12,12 +10,8 @@ class Supplier < ApplicationRecord
 
   private
 
-  def check_cnpj(cnpj)
-    number = CNPJ.new(cnpj)
-    number.formatted if number.valid?
-  end
-
   def valid_cnpj
-    self.cnpj = check_cnpj(cnpj)
+    self.cnpj = CheckCnpj.formatted(cnpj)
+    errors.add(:cnpj, 'inválido') unless CheckCnpj.isvalid(cnpj)
   end
 end
