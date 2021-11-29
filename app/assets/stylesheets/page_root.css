@@ -12,8 +12,8 @@
 }
 
 .img-main-page img {
-  max-height: 60em;
-  max-width: 60em;
+  height: auto;
+  max-width: 100%;
 }
 
 .msg-intro {
