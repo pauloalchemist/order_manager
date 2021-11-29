@@ -3,13 +3,12 @@
 }
 
 .grid-page-root {
-  margin-top: 6em;
+  margin-top: 8em;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 1fr;
   justify-items: center;
   align-items: center;
-  max-height: 70vh;
 }
 
 .img-main-page img {
