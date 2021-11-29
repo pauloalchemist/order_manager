@@ -6,7 +6,7 @@ describe 'visit home' do
   end
 
   it 'and find main message' do
-    expect(page).to have_content('Gerenciador de Pedidos')
+    expect(find('.msg-intro').find('h1')).to have_content('Gerenciador de Pedidos')
     expect(page).to have_content('A sua melhor forma de controlar seus pedidos.')
   end
   it 'and find navbar' do
