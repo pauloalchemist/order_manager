@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'visit home' do
   before :each do
-    visit '/'
+    visit root_path
   end
 
   it 'and find main message' do
