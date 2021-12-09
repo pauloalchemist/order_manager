@@ -4,13 +4,12 @@ AllCops:
     - 'config/**/*'
     - 'script/**/*'
     - 'bin/{rails,rake}'
-    - !ruby/regexp /old_and_unused\.rb$/
 
 Metrics/BlockLength:
   Enabled: false
 
 Metrics/MethodLength:
-  Enabled: false
+  Enabled: true
 
 Style/FrozenStringLiteralComment:
   Enabled: false
