@@ -11,5 +11,9 @@ Projeto de gerenciador de pedidos com Ruby on Rails e Postgres.
 - GithubActions para Continuous Integration (CI)
 - Postgres 13 como banco de dados 
 
+### Estrutura do Projeto
+
+![Uml](./requirements/uml/1.svg)
+
 Aviso: Testo várias coisas nesse repositório. E sim, você encontrará inconformidades aqui.  
 Aviso²: Se algo aqui te ajudar, tá valendo. Busque retribuir.   
