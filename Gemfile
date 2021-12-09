@@ -12,7 +12,7 @@ gem 'kaminari', '~> 1.2', '>= 1.2.1'
 gem 'pg', '~> 1.1'
 gem 'prawn', '~> 2.4'
 gem 'prawn-table', '~> 0.2.2'
-gem 'puma', '~> 5.0'
+gem 'puma', '~> 5.5.2'
 gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
 gem 'ransack', '~> 2.4', '>= 2.4.2'
 gem 'redis', '~> 4.5', '>= 4.5.1'
@@ -20,7 +20,7 @@ gem 'sass-rails', '>= 6'
 gem 'sidekiq', '~> 6.2', '>= 6.2.2'
 gem 'simple_form', '~> 5.1'
 gem 'turbolinks', '~> 5'
-gem 'webpacker', '~> 5.0'
+gem 'webpacker', '~> 5.4', '>= 5.4.3'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
@@ -46,7 +46,6 @@ group :development do
   gem 'listen', '~> 3.3'
   gem 'overcommit', '~> 0.58.0'
   gem 'spring'
-  gem 'web-console', '>= 4.1.0'
 end
 
 gem 'rack-mini-profiler', '~> 2.0'
