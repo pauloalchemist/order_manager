@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Supplier < ApplicationRecord
   before_validation :valid_cnpj
 
