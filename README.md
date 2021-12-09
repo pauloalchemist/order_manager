@@ -15,5 +15,14 @@ Projeto de gerenciador de pedidos com Ruby on Rails e Postgres.
 
 ![Uml](./requirements/uml/1.svg)
 
+### Status do Projeto
+
+- [x] Idealização
+      - [x] Requisitos e Casos de Uso
+- [x] Desenvolvimento
+      - [x] Testes unitários
+      - [] Cobertura de testes
+- [ ] Aplicação em produção
+
 Aviso: Testo várias coisas nesse repositório. E sim, você encontrará inconformidades aqui.  
 Aviso²: Se algo aqui te ajudar, tá valendo. Busque retribuir.   
