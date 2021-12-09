@@ -23,6 +23,7 @@ PreCommit:
     
   BundleCheck:
     enabled: true
+    command: ['bundler-audit' ]
 
   ErbLint:
     enabled: true
