@@ -32,15 +32,17 @@ nav {
 }
 
 .nav-links li a {
-  color: #4caf50;
+  color: #fff;
   font-size: 16px;
   transition: all 200ms ease-in;
 }
 
 .nav-links li a:hover {
-  border-bottom: 1px solid #4caf50;
-  padding: 8px;
-  color: white;
+  background-color: #fff;
+  color: #4caf50;
+  border: 1px solid #4caf50;
+  border-radius: 10%;
+  padding: 5px;
 }
 
 .nav-links:first-child {
