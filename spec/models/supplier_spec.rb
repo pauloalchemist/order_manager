@@ -14,6 +14,8 @@ RSpec.describe Supplier, type: :model do
 
     describe 'associations' do
       it { should have_many(:supplier_addresses) }
+      it { should have_many(:products) }
+      it { expect(supplier).to accept_nested_attributes_for(:supplier_addresses) }
     end
   end
 end
