@@ -23,6 +23,10 @@ RSpec.describe Supplier, type: :model do
         supplier.cnpj = '00.000.000/0000-00'
         expect(supplier).to be_invalid
       end
+      it 'if corporate name is blank' do
+        supplier.corporate_name = ''
+        expect(supplier).to be_invalid
+      end
     end
   end
 end
