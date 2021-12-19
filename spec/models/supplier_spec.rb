@@ -17,5 +17,12 @@ RSpec.describe Supplier, type: :model do
       it { should have_many(:products) }
       it { expect(supplier).to accept_nested_attributes_for(:supplier_addresses) }
     end
+
+    context 'supplier is invalid' do
+      it 'if cnpj is invalid' do
+        supplier.cnpj = '00.000.000/0000-00'
+        expect(supplier).to be_invalid
+      end
+    end
   end
 end
