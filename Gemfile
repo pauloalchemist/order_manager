@@ -36,6 +36,7 @@ end
 
 group :test do
   gem 'capybara', '~> 3.35', '>= 3.35.3'
+  gem 'rails-controller-testing', '~> 1.0', '>= 1.0.5'
   gem 'selenium-webdriver', '~> 3.142', '>= 3.142.7'
   gem 'shoulda-matchers', '~> 5.0'
   gem 'simplecov', '~> 0.21.2'
