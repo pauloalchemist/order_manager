@@ -21,5 +21,13 @@ RSpec.describe 'Suppliers', type: :request do
       get '/suppliers.pdf'
       expect(response.status).to eq(200)
     end
+
+    context 'when the user is logged out' do
+      it 'should response status code 401 when trying to render suppliers.pdf' do
+        sign_out(user)
+        get '/suppliers.pdf'
+        expect(response.status).to eq(401)
+      end
+    end
   end
 end
