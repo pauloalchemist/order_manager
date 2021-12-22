@@ -13,13 +13,15 @@ RSpec.describe 'Suppliers', type: :request do
     end
     context 'when the user is logged in' do
       it { should render_template(:index) }
-    end
-    it 'should response status code 200' do
-      expect(response.status).to eq(200)
-    end
-    it 'should response status code 200 when render suppliers.pdf' do
-      get '/suppliers.pdf'
-      expect(response.status).to eq(200)
+
+      it 'should response status code 200' do
+        expect(response.status).to eq(200)
+      end
+
+      it 'should response status code 200 when render suppliers.pdf' do
+        get '/suppliers.pdf'
+        expect(response.status).to eq(200)
+      end
     end
 
     context 'when the user is logged out' do
