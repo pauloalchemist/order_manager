@@ -3,6 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Suppliers', type: :request do
+  Prawn::Fonts::AFM.hide_m17n_warning = true
   let(:user) { create(:user) }
 
   describe 'GET suppliers#index' do
@@ -14,6 +15,10 @@ RSpec.describe 'Suppliers', type: :request do
       it { should render_template(:index) }
     end
     it 'should response status code 200' do
+      expect(response.status).to eq(200)
+    end
+    it 'should response status code 200 when render suppliers.pdf' do
+      get '/suppliers.pdf'
       expect(response.status).to eq(200)
     end
   end
