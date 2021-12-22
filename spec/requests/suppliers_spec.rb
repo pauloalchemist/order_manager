@@ -13,5 +13,8 @@ RSpec.describe 'Suppliers', type: :request do
     context 'when the user is logged in' do
       it { should render_template(:index) }
     end
+    it 'should response status code 200' do
+      expect(response.status).to eq(200)
+    end
   end
 end
