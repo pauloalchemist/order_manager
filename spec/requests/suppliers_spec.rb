@@ -18,6 +18,14 @@ RSpec.describe 'Suppliers', type: :request do
         expect(response.status).to eq(200)
       end
 
+      it 'status 200 when render /suppliers/id' do
+        supplier = Supplier.create(corporate_name: 'ui', fantasy_name: 'ui2',
+                                   cnpj: Faker::Company.brazilian_company_number)
+
+        get "/suppliers/#{supplier[:id]}"
+        expect(response.status).to eq(200)
+      end
+
       it 'should response status code 200 when render suppliers.pdf' do
         get '/suppliers.pdf'
         expect(response.status).to eq(200)
