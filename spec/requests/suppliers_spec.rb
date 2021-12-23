@@ -5,6 +5,7 @@ require 'rails_helper'
 RSpec.describe 'Suppliers', type: :request do
   Prawn::Fonts::AFM.hide_m17n_warning = true
   let(:user) { create(:user) }
+  let(:supplier) { create(:supplier) }
 
   describe 'GET suppliers#index' do
     before do
@@ -19,8 +20,7 @@ RSpec.describe 'Suppliers', type: :request do
       end
 
       it 'status 200 when render /suppliers/id' do
-        supplier = Supplier.create(corporate_name: 'ui', fantasy_name: 'ui2',
-                                   cnpj: Faker::Company.brazilian_company_number)
+        supplier = Supplier.create(supplier)
 
         get "/suppliers/#{supplier[:id]}"
         expect(response.status).to eq(200)
