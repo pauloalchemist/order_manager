@@ -34,6 +34,7 @@ rescue ActiveRecord::PendingMigrationError => e
   exit 1
 end
 RSpec.configure do |config|
+  Prawn::Fonts::AFM.hide_m17n_warning = true
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.include Rails.application.routes.url_helpers
   config.fixture_path = "#{::Rails.root}/spec/fixtures"

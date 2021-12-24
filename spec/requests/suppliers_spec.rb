@@ -3,7 +3,6 @@
 require 'rails_helper'
 
 RSpec.describe 'Suppliers', type: :request do
-  Prawn::Fonts::AFM.hide_m17n_warning = true
   let(:user) { create(:user) }
   let(:supplier) { create(:supplier) }
 
