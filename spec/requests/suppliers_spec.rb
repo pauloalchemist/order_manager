@@ -11,17 +11,11 @@ RSpec.describe 'Suppliers', type: :request do
       sign_in(user)
       get suppliers_path
     end
+
     context 'when the user is logged in' do
       it { should render_template(:index) }
 
       it 'should response status code 200' do
-        expect(response.status).to eq(200)
-      end
-
-      it 'status 200 when render /suppliers/id' do
-        supplier = Supplier.create(supplier)
-
-        get "/suppliers/#{supplier[:id]}"
         expect(response.status).to eq(200)
       end
 
@@ -36,6 +30,21 @@ RSpec.describe 'Suppliers', type: :request do
         sign_out(user)
         get '/suppliers.pdf'
         expect(response.status).to eq(401)
+      end
+    end
+  end
+
+  describe 'GET suppliers#show' do
+    before do
+      sign_in(user)
+    end
+
+    context 'when the user is logged in' do
+      it 'status 200 when render /suppliers/id' do
+        supplier = Supplier.create(supplier)
+
+        get "/suppliers/#{supplier[:id]}"
+        expect(response.status).to eq(200)
       end
     end
   end
