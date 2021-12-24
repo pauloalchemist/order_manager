@@ -10,6 +10,9 @@ RSpec.describe SuppliersReportPdf do
       it 'contains corporate company' do
         expect(pdf_content).to include(suppliers[0][:corporate_name])
       end
+      it 'contains fantasy company' do
+        expect(pdf_content).to include(suppliers[0][:fantasy_name])
+      end
     end
   end
 end
