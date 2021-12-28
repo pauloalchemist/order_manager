@@ -23,11 +23,11 @@ RSpec.describe Supplier, type: :model do
   end
 
   context 'supplier is invalid' do
-    it 'if cnpj is invalid' do
+    it 'when cnpj is invalid' do
       supplier.cnpj = '00.000.000/0000-00'
       expect(supplier).to be_invalid
     end
-    it 'if corporate name is blank' do
+    it 'when corporate name is blank' do
       supplier.corporate_name = ''
       expect(supplier).to be_invalid
     end
