@@ -5,6 +5,8 @@ require 'rails_helper'
 RSpec.describe 'Suppliers', type: :request do
   let(:user) { create(:user) }
   let(:supplier) { create(:supplier) }
+  let(:state) { create(:state) }
+  let(:city) { create(:city) }
 
   describe 'GET suppliers#index' do
     before do
@@ -75,6 +77,7 @@ RSpec.describe 'Suppliers', type: :request do
       end
     end
   end
+
   describe 'POST suppliers#create' do
     context 'when the user is logged in' do
       before do
@@ -90,7 +93,13 @@ RSpec.describe 'Suppliers', type: :request do
         post '/suppliers',
              params: { supplier: { corporate_name: Faker::Company.name,
                                    fantasy_name: Faker::Fantasy::Tolkien.character,
-                                   cnpj: Faker::Company.brazilian_company_number } }
+                                   cnpj: Faker::Company.brazilian_company_number,
+                                   supplier_addresses_attributes: { "0": { address: 'Rua v',
+                                                                           number: 1,
+                                                                           district: 'bairro',
+                                                                           cities_id: city[:id],
+                                                                           states_id: state[:id],
+                                                                           zipcode: '44100-000' } } } }
 
         expect(response).to redirect_to(assigns(:supplier))
         expect(flash[:notice]).to match(/Fornecedor criado com sucesso./)
