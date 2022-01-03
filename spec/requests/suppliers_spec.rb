@@ -104,6 +104,11 @@ RSpec.describe 'Suppliers', type: :request do
         expect(response).to redirect_to(assigns(:supplier))
         expect(flash[:notice]).to match(/Fornecedor criado com sucesso./)
       end
+
+      it 'should not create new supplier with invalid params' do
+        post '/suppliers', params: { supplier: { corporate_name: nil } } # um exemplo simples
+        expect(response.status).to eq(422)
+      end
     end
   end
 end
