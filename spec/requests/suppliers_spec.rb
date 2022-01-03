@@ -110,5 +110,16 @@ RSpec.describe 'Suppliers', type: :request do
         expect(response.status).to eq(422)
       end
     end
+
+    context 'when the user is logged out' do
+      before do
+        sign_out(user)
+      end
+
+      it 'should redirect to login page when trying create suppliers' do
+        post '/suppliers'
+        expect(response).to redirect_to new_user_session_path
+      end
+    end
   end
 end
