@@ -58,5 +58,17 @@ RSpec.describe 'Suppliers', type: :request do
         expect(response.status).to eq(200)
       end
     end
+
+    context 'when the user logged out' do
+      before do
+        sign_out(user)
+      end
+
+      it 'should redirect to login page when trying to access suppliers/id' do
+        get "/suppliers/#{supplier[:id]}"
+
+        expect(response).to redirect_to new_user_session_path
+      end
+    end
   end
 end
