@@ -43,11 +43,11 @@ RSpec.describe 'Suppliers', type: :request do
   end
 
   describe 'GET suppliers#show' do
-    before do
-      sign_in(user)
-    end
-
     context 'when the user is logged in' do
+      before do
+        sign_in(user)
+      end
+
       it 'status 200 when render /suppliers/id' do
         get "/suppliers/#{supplier[:id]}"
         expect(response.status).to eq(200)
