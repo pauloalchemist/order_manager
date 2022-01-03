@@ -69,6 +69,11 @@ RSpec.describe 'Suppliers', type: :request do
 
         expect(response).to redirect_to new_user_session_path
       end
+
+      it 'should response status 401 when trying render /suppliers/id.pdf' do
+        get "/suppliers/#{supplier[:id]}.pdf"
+        expect(response.status).to eq(401)
+      end
     end
   end
 end
