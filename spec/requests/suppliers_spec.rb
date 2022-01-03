@@ -26,10 +26,18 @@ RSpec.describe 'Suppliers', type: :request do
     end
 
     context 'when the user is logged out' do
-      it 'should response status code 401 when trying to render suppliers.pdf' do
+      before do
         sign_out(user)
+      end
+
+      it 'should response status code 401 when trying to render suppliers.pdf' do
         get '/suppliers.pdf'
         expect(response.status).to eq(401)
+      end
+
+      it 'should redirect to login page for anonymous user' do
+        get '/suppliers'
+        expect(response).to redirect_to new_user_session_path
       end
     end
   end
@@ -41,9 +49,12 @@ RSpec.describe 'Suppliers', type: :request do
 
     context 'when the user is logged in' do
       it 'status 200 when render /suppliers/id' do
-        supplier = Supplier.create(supplier)
-
         get "/suppliers/#{supplier[:id]}"
+        expect(response.status).to eq(200)
+      end
+
+      it 'status 200 when render /suppliers/id.pdf' do
+        get "/suppliers/#{supplier[:id]}.pdf"
         expect(response.status).to eq(200)
       end
     end
