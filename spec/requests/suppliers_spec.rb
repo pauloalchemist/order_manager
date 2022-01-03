@@ -116,6 +116,11 @@ RSpec.describe 'Suppliers', type: :request do
         sign_out(user)
       end
 
+      it 'should redirect to login page when trying access template new supplier' do
+        get '/suppliers/new'
+        expect(response).to redirect_to new_user_session_path
+      end
+
       it 'should redirect to login page when trying create suppliers' do
         post '/suppliers'
         expect(response).to redirect_to new_user_session_path
