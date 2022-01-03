@@ -66,13 +66,34 @@ RSpec.describe 'Suppliers', type: :request do
 
       it 'should redirect to login page when trying to access suppliers/id' do
         get "/suppliers/#{supplier[:id]}"
-
         expect(response).to redirect_to new_user_session_path
       end
 
       it 'should response status 401 when trying render /suppliers/id.pdf' do
         get "/suppliers/#{supplier[:id]}.pdf"
         expect(response.status).to eq(401)
+      end
+    end
+  end
+  describe 'POST suppliers#create' do
+    context 'when the user is logged in' do
+      before do
+        sign_in(user)
+      end
+
+      it 'should render template new' do
+        get '/suppliers/new'
+        expect(response).to render_template(:new)
+      end
+
+      it 'should create new supplier' do
+        post '/suppliers',
+             params: { supplier: { corporate_name: Faker::Company.name,
+                                   fantasy_name: Faker::Fantasy::Tolkien.character,
+                                   cnpj: Faker::Company.brazilian_company_number } }
+
+        expect(response).to redirect_to(assigns(:supplier))
+        expect(flash[:notice]).to match(/Fornecedor criado com sucesso./)
       end
     end
   end
