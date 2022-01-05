@@ -9,11 +9,11 @@ RSpec.describe PriceList, type: :model do
     it { expect(price_list).to be_valid }
   end
 
-  describe 'associations' do
+  context 'associations' do
     it { should belong_to(:product) }
   end
 
-  describe 'validations' do
+  context 'validations' do
     it { should validate_presence_of(:price) }
   end
 end
