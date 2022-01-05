@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   
-  unauthenticated do
-    root "pages#home"
-  end
+  root "pages#home"
 
   authenticate :user do 
     root 'dashboards#dash', as: :authenticated_root
