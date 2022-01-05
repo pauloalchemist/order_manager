@@ -1,8 +1,12 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Product, type: :model do
   describe 'associations' do
     it { should belong_to(:supplier) }
+    it { should have_many(:price_lists) }
+    it { should accept_nested_attributes_for(:price_lists) }
   end
 
   describe 'validations' do
