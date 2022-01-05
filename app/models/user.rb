@@ -14,6 +14,6 @@ class User < ApplicationRecord
     return if password.blank? || password =~ /(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])/
 
     errors.add :password,
-               'Senha deve possuir: 1 letra maíscula, 1 letra minúscula, 1 digito e 1 caracter especial.'
+               'Senha deve possuir: 1 letra maiúscula, 1 letra minúscula, 1 digito e 1 caracter especial.'
   end
 end
