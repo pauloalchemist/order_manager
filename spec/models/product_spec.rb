@@ -3,6 +3,12 @@
 require 'rails_helper'
 
 RSpec.describe Product, type: :model do
+  let(:product) { build(:product) }
+
+  context 'test product factory' do
+    it { expect(product).to be_valid }
+  end
+
   describe 'associations' do
     it { should belong_to(:supplier) }
     it { should have_many(:price_lists) }
