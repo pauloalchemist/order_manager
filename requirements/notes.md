@@ -16,3 +16,4 @@
 
 - Pedido:
   Total bruto em R$??, desconto?, subtotal, IPI?, total líquido.  
+  Sobre visualizar o preço em R$: helper.number_to_currency(221002.50, unit: "R$", separator: ",", delimiter: ".", format: "%u %n")
