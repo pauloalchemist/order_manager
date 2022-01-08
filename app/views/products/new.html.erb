@@ -28,6 +28,13 @@
         <%= f.text_field :sku %>
       </div>
 
+      <%= f.fields_for :price_lists do |p| %>
+        <div class="textbox">
+          <%= p.label :price, 'Preço de venda (R$)' %>
+          <%= p.number_field :price, step: 0.01 %>
+        </div>
+      <% end %>
+
       <button class="btn-logon">
         <%= f.submit "Cadastrar" %>
       </button>
