@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe 'Products', type: :request do
   let(:user) { build(:user) }
-  let(:supplier) { build(:supplier) }
+  let(:supplier) { create(:supplier) }
   let(:product) { build(:product) }
   let(:price_list) { build(:price_list) }
 
@@ -17,6 +17,20 @@ RSpec.describe 'Products', type: :request do
       it 'should render template new' do
         get '/products/new'
         expect(response).to render_template(:new)
+      end
+
+      it 'should create a new product' do
+        post '/products',
+             params: { product: {
+               name: product.name,
+               description: product.description,
+               sku: product.sku,
+               supplier_id: supplier[:id],
+               price_lists_attributes: { "0": { price: price_list.price } }
+             } }
+
+        expect(response).to redirect_to(assigns(:product))
+        expect(flash[:notice]).to match(/Produto criado com sucesso./)
       end
     end
   end
