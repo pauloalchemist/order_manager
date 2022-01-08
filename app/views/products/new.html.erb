@@ -1,13 +1,19 @@
 <%= render 'shared/sidenav_user' %>
-<%= form_with model: @product do |f| %>
+
+<%= form_with model: @product, url: products_url do |f| %>
+  
   <main class="logon-main">
+    
     <div class="logon-box">
       <%= render "shared/logo" %>
+      <%= render "shared/alert" %>
+      
       <h2>Cadastrar novo produto</h2>
+
       <div class="textbox">
         <i class="far fa-user" aria-hidden="true"></i>
-        <%= f.label :Forncedor %>
-        <%= f.collection_select :supplier_id, Supplier.all, :id, :corporate_name, autofocus: true %>
+        <%= f.label :supplier_id, 'Fornecedor' %>
+        <%= f.collection_select :supplier_id, Supplier.order(:corporate_name), :id, :corporate_name, autofocus: true %>
       </div>
 
       <div class="textbox">
