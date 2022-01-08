@@ -2,34 +2,36 @@
 
 <div class="suppliers-report-all">
   <div class="title-index">
-    <i class="fas fa-cubes fa-2x" aria-hidden="true" ></i>
+    <i class="fas fa-cubes fa-2x" aria-hidden="true"></i>
     <h2>Produtos</h2>
   </div>
   <table>
-    <caption></caption>
     <thead>
       <tr>
-        <th>Sku</th>
         <th>Nome</th>
+        <th>Sku</th>
         <th>Descrição</th>
-        <th>Forncedor</th>
+        <th>Fornecedor</th>
+        <th>Preço</th>
       </tr>
     </thead>
 
     <tbody>
       <% @products.each do |s| %>
         <tr>
-          <td><%= s.sku %></td>
           <td><%= s.name %></td>
+          <td><%= s.sku %></td>
           <td><%= s.description %></td>
           <td><%= s.supplier_id %></td>
+          <td><%= s.price_lists.map(&:price) %></td>
+
         </tr>
       <% end %>
     </tbody>
   </table>
   <%= paginate @products %>
   <div class="download-pdf">
-    <%= link_to 'Download', '/suppliers.pdf', target: :blank %>
+    <%= link_to 'Download', '/products.pdf', target: :blank %>
     <i class="fa fa-file-pdf"></i>
   </div>
 </div>
