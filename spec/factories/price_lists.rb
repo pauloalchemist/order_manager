@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :price_list do
-    price { 1.00 }
+    price { 10.00 }
 
     association :product
   end
