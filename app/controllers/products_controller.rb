@@ -18,21 +18,12 @@ class ProductsController < ApplicationController
   def show
     respond_to do |format|
       format.html
-      format.pdf do
-        pdf = Prawn::Document.new
-        pdf.text "Relatório Forncedor #{@supplier.corporate_name}"
-        pdf.text "Nome fantasia: #{@supplier.fantasy_name}"
-        pdf.text "CNPJ: #{@supplier.cnpj}"
-        send_data pdf.render,
-                  filename: 'export.pdf',
-                  type: 'application/pdf',
-                  disposition: 'inline'
-      end
     end
   end
 
   def new
     @product = Product.new
+    @product.price_lists.build
   end
 
   def edit; end
@@ -58,6 +49,9 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:name, :description, :sku, :supplier_id)
+    params.require(:product).permit(
+      :name, :description, :sku, :supplier_id,
+      price_lists_attributes: %i[id price]
+    )
   end
 end
