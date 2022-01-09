@@ -23,7 +23,10 @@
           <td><%= s.sku %></td>
           <td><%= s.description %></td>
           <td><%= s.supplier_id %></td>
-          <td><%= s.price_lists.map(&:price) %></td>
+
+          <% s.price_lists.each do |price_list| %>
+            <td><%= number_to_currency(price_list.price, unit: "R$", separator: ",", delimiter: ".", format: "%u %n") %></td>
+          <% end %>
 
         </tr>
       <% end %>
