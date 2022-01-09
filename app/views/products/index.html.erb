@@ -27,11 +27,11 @@
           <% s.price_lists.each do |price_list| %>
             <td><%= number_to_currency(price_list.price, unit: "R$", separator: ",", delimiter: ".", format: "%u %n") %></td>
           <% end %>
-
         </tr>
       <% end %>
     </tbody>
   </table>
+
   <%= paginate @products %>
   <div class="download-pdf">
     <%= link_to 'Download', '/products.pdf', target: :blank %>
