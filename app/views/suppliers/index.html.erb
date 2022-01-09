@@ -17,11 +17,12 @@
           <td><%= s.corporate_name %></td>
           <td><%= s.fantasy_name %></td>
           <td><%= s.cnpj %></td>
-        </tr>
       <% end %>
     </tbody>
   </table>
+
   <%= paginate @suppliers %>
+
   <div class="download-pdf">
     <%= link_to 'Download', '/suppliers.pdf', target: :blank %>
     <i class="fa fa-file-pdf"></i>
