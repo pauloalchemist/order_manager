@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 
 ruby '3.0.2'
@@ -45,6 +47,7 @@ group :test do
 end
 
 group :development do
+  gem 'brakeman', '~> 5.2'
   gem 'listen', '~> 3.3'
   gem 'overcommit', '~> 0.58.0'
   gem 'spring'
