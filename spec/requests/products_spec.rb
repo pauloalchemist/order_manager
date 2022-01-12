@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe 'Products', type: :request do
   let(:user) { build(:user) }
   let(:supplier) { create(:supplier) }
-  let(:product) { build(:product) }
+  let(:product) { create(:product) }
   let(:price_list) { build(:price_list) }
 
   describe 'GET products#index' do
@@ -26,6 +26,31 @@ RSpec.describe 'Products', type: :request do
 
       it 'should redirect to login page for anonymous user' do
         get '/suppliers'
+
+        expect(response.status).to eq(302)
+        expect(response).to redirect_to new_user_session_path
+      end
+    end
+  end
+
+  describe 'GET products#show' do
+    context 'when the user is logged in' do
+      before do
+        sign_in(user)
+        get "/products/#{product[:id]}"
+      end
+
+      it { should render_template(:show) }
+      it { expect(response.status).to eq(200) }
+    end
+
+    context 'when the user is logged out' do
+      before do
+        sign_out(user)
+      end
+
+      it 'should redirect to login page for anonymous user' do
+        get "/products/#{product[:id]}"
 
         expect(response.status).to eq(302)
         expect(response).to redirect_to new_user_session_path
