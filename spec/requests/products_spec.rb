@@ -8,6 +8,31 @@ RSpec.describe 'Products', type: :request do
   let(:product) { build(:product) }
   let(:price_list) { build(:price_list) }
 
+  describe 'GET products#index' do
+    context 'when the user is logged in' do
+      before do
+        sign_in(user)
+        get products_path
+      end
+
+      it { should render_template(:index) }
+      it { expect(response.status).to eq(200) }
+    end
+
+    context 'when the user is logged out' do
+      before do
+        sign_out(user)
+      end
+
+      it 'should redirect to login page for anonymous user' do
+        get '/suppliers'
+
+        expect(response.status).to eq(302)
+        expect(response).to redirect_to new_user_session_path
+      end
+    end
+  end
+
   describe 'POST products#create' do
     context 'when the user is logged in' do
       before do
