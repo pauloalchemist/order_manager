@@ -34,4 +34,15 @@ RSpec.describe 'Products', type: :request do
       end
     end
   end
+
+  context 'when the user is logged out' do
+    before do
+      sign_out(user)
+    end
+
+    it 'should be redirected to login page' do
+      get '/products/new'
+      expect(response).to redirect_to new_user_session_path
+    end
+  end
 end
