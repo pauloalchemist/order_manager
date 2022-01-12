@@ -6,6 +6,7 @@ ruby '3.0.2'
 
 gem 'actionpack', '>= 6.1.4.2'
 gem 'bootsnap', '>= 1.4.4', require: false
+gem 'carrierwave', '~> 2.2', '>= 2.2.2'
 gem 'chartkick', '~> 4.1'
 gem 'cloudinary', '~> 1.21'
 gem 'cpf_cnpj', '~> 0.5.0'
