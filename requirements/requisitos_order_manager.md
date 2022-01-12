@@ -6,6 +6,7 @@
     1.2 preço produto: três tipos de preço?
     1.2 produto: lote e validade
     1.3 gerador de sku
+    1.4 possuir foto que possibilite a sua visualização
 
 ### 2. Usuário cliente
     2.0 nome, cnpj e/ou cpf, email, endereço, inscrição estadual.
