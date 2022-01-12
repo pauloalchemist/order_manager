@@ -42,6 +42,7 @@ RSpec.describe 'Products', type: :request do
 
     it 'should be redirected to login page' do
       get '/products/new'
+      expect(response.status).to eq(302)
       expect(response).to redirect_to new_user_session_path
     end
   end
