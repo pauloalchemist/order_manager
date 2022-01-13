@@ -1,13 +1,13 @@
 <%= render 'shared/sidenav_user' %>
 
 <%= form_with model: @product, url: products_url do |f| %>
-  
+
   <main class="logon-main">
-    
+
     <div class="logon-box">
       <%= render "shared/logo" %>
       <%= render "shared/alert" %>
-      
+
       <h2>Cadastrar novo produto</h2>
 
       <div class="textbox">
@@ -27,12 +27,18 @@
         <%= f.label :descrição %>
         <%= f.text_field :description %>
       </div>
-      
+
       <div class="textbox">
         <i class="fas fa-envelope" aria-hidden="true"></i>
         <%= f.label :sku %>
         <%= f.text_field :sku %>
       </div>
+
+      <fieldset>
+        <%= f.label :image, 'Insira a imagem do produto:' %>
+        <%= f.hidden_field :image_cache %>
+        <%= f.file_field :image %>
+      </fieldset>
 
       <%= f.fields_for :price_lists do |p| %>
         <div class="textbox">

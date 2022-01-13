@@ -8,6 +8,7 @@
   <table>
     <thead>
       <tr>
+        <th>Imagem</th>
         <th>Nome</th>
         <th>Sku</th>
         <th>Descrição</th>
@@ -19,6 +20,7 @@
     <tbody>
       <% @products.each do |s| %>
         <tr>
+          <td><img style="max-width: 150px" src="<%= s.image %>"></td>
           <td><%= s.name %></td>
           <td><%= s.sku %></td>
           <td><%= s.description %></td>
