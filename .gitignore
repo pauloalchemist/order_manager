@@ -25,3 +25,5 @@ yarn-debug.log*
 /imgs
 /.env
 coverage
+public/uploads/
+.browserslistrc
