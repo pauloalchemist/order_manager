@@ -10,7 +10,7 @@ RSpec.describe Customer, type: :model do
     it { expect(customer.active?).to be true }
   end
 
-  describe 'validations' do
+  context 'validations' do
     it { should validate_presence_of(:name) }
     it { should validate_presence_of(:cnpj) }
     it { should validate_presence_of(:email) }
