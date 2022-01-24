@@ -15,4 +15,8 @@ RSpec.describe CustomerAddress, type: :model do
     it { should validate_presence_of(:district) }
     it { should validate_presence_of(:zipcode) }
   end
+
+  context 'associations' do
+    it { should belong_to(:customer) }
+  end
 end
