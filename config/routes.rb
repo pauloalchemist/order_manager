@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     get '/dashboard' => "dashboards#dash", :as => :user_root
     resources :suppliers, only: [:index, :show, :new, :create]
     resources :products, only: [ :index, :show, :new, :create ]
+    resources :customers, only: [ :index, :show, :new, :create ]
   end
 
 
