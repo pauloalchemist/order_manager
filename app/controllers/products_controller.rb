@@ -7,11 +7,6 @@ class ProductsController < ApplicationController
     @products = Product.includes(:price_lists).order(:products).page params[:page]
     respond_to do |format|
       format.html
-      format.pdf do
-        @products = Product.all
-        pdf = ProductsReportPdf.new(@products)
-        send_data pdf.render, filename: "produtos_#{Time.now}.pdf", type: 'application/pdf', disposition: 'inline'
-      end
     end
   end
 
