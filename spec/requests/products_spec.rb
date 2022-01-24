@@ -82,6 +82,19 @@ RSpec.describe 'Products', type: :request do
         expect(response).to redirect_to(assigns(:product))
         expect(flash[:notice]).to match(/Produto criado com sucesso./)
       end
+
+      it 'should not create a new product if params have nil' do
+        post '/products',
+             params: { product: {
+               name: nil,
+               description: nil,
+               sku: nil,
+               supplier_id: nil,
+               price_lists_attributes: { "0": { price: nil } }
+             } }
+
+        expect(response.status).to eq(422)
+      end
     end
   end
 
