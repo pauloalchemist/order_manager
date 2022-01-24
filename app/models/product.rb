@@ -10,6 +10,6 @@ class Product < ApplicationRecord
   mount_uploader :image, ImageUploader
 
   belongs_to :supplier
-  has_many :price_lists, inverse_of: :product
+  has_many :price_lists, inverse_of: :product, dependent: :delete_all
   accepts_nested_attributes_for :price_lists
 end
