@@ -95,6 +95,19 @@ RSpec.describe 'Products', type: :request do
 
         expect(response.status).to eq(422)
       end
+
+      it 'should not create a new product if params have blank' do
+        post '/products',
+             params: { product: {
+               name: '',
+               description: '',
+               sku: '',
+               supplier_id: '',
+               price_lists_attributes: { "0": { price: '' } }
+             } }
+
+        expect(response.status).to eq(422)
+      end
     end
   end
 
