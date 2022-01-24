@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :customer_address do
     address { Faker::Address.street_name }
@@ -7,5 +9,7 @@ FactoryBot.define do
     customer_id { 1 }
     cities_id { 100 }
     states_id { 162 }
+
+    association :customer
   end
 end
