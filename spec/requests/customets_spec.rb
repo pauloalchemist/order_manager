@@ -4,7 +4,8 @@ require 'rails_helper'
 
 RSpec.describe 'Customers', type: :request do
   let(:user) { build(:user) }
-  let(:customer) { create(:customer) }
+  let(:customer) { build(:customer) }
+  let(:customer_address) { build(:customer_address) }
   let(:state) { create(:state) }
   let(:city) { create(:city) }
 
@@ -23,17 +24,17 @@ RSpec.describe 'Customers', type: :request do
         post '/customers',
              params:
               { customer:
-                { name: Faker::Company.name,
-                  cnpj: Faker::Company.brazilian_company_number,
-                  email: Faker::Internet.email,
+                { name: customer.name,
+                  cnpj: customer.cnpj,
+                  email: customer.email,
                   customer_addresses_attributes:
                     { "0":
-                      { address: 'Rua cabrobro',
-                        number: 1,
-                        district: 'Deus é mais',
+                      { address: customer_address.address,
+                        number: customer_address.number,
+                        district: customer_address.district,
                         cities_id: city[:id],
                         states_id: state[:id],
-                        zipcode: '44100-000' } } } }
+                        zipcode: customer_address.zipcode } } } }
 
         expect(response).to redirect_to(assigns(:customer))
         expect(flash[:notice]).to match(/Cliente criado com sucesso./)
