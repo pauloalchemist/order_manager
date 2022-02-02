@@ -1,6 +1,6 @@
 .sidenav-user {
   height: 100%;
-  width: 100px;
+  max-width: 80px;
   position: fixed;
   z-index: 1;
   top: 0;

@@ -1,0 +1,8 @@
+<%= render 'shared/sidenav_user' %>
+
+<%= simple_form_for @customer, defaults: { input_html: { class: 'new_customer' } } do |f| %>
+  <h2>Novo Cliente</h2>
+  <%= f.input :name, label: 'Nome' %>
+  <%= f.input :cnpj, label: 'CNPJ' %>
+  <%= f.input :email, label: 'E-mail' %>
+<% end %>

@@ -1,0 +1,12 @@
+.new_customer {
+  margin-left: 85px;
+  padding-top: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+}
+
+.new_customer h2 {
+  text-align: center;
+}
