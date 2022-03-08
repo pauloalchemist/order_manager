@@ -13,7 +13,14 @@ Projeto de gerenciador de pedidos com Ruby on Rails e Postgres.
 
 ### Estrutura do Projeto
 
-![Uml](./requirements/uml/1.svg)
+```mermaid
+flowchat TD
+    A[Pedido] --> B[Temos o produto?];
+    B -- Sim --> C[Prossegue o pedido];
+    B -- Não --> D[Interrompe o pedido];
+    C ----> E[Visualização do pedido];
+    D ----> F[Msg de falta para o usuário];
+```
 
 ### Status do Projeto
 
